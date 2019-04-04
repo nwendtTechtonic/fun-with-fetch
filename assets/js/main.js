@@ -13,12 +13,17 @@ document.getElementById('fetch-btn').addEventListener('click', fetchComments)
 function fetchComments(event) {
   fetch(`https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/`)
   .then(res => res.json())
-  .then(data => appendHTML(data));
+  .then(data => appendComments(data));
 }
 
-function appendHTML(data) {
-  console.log(data);
-  // console.log(data.length);
+function appendComments(data) {
+  let container = document.getElementById('comment-container');
+
+  for (var i = 0; i < data.length; i++) {
+    let li = document.createElement('li');
+    li.innerText = data[i].comment;
+    container.append(li);
+  }
 }
 
 // create feature to post Comments
