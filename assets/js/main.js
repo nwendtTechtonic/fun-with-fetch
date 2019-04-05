@@ -24,6 +24,7 @@ function appendComments(data) {
     li.innerText = data[i].comment;
     container.append(li);
   }
+  isolateName(data);
 }
 
 // create feature to post Comments
@@ -46,6 +47,12 @@ function postComment(event) {
 }
 
 // create function to find and display comments from specific author
+function isolateName(data) {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].author === "Nathaniel")
+      console.log('yuppers')
+  }
+}
 
 // create function to delete all comments from a specific author
 
