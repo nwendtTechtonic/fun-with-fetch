@@ -1,0 +1,8 @@
+.hidden {
+  display: none;
+}
+
+li {
+  list-style: none;
+  font-size: 14px;
+}
