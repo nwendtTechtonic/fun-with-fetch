@@ -1,8 +1,13 @@
+* {
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
 .hidden {
   display: none;
 }
 
 li {
   list-style: none;
-  font-size: 14px;
+  font-size: 13px;
 }

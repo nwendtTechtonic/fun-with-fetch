@@ -34,12 +34,14 @@ function postComment(event) {
   let comment = document.getElementById('comment').value;
   let data = {name: name, comment: comment};
 
+  resetTextField = () => document.getElementById('comment').value = '';
+
   fetch('https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {'Content-Type': 'application/json'}
-  }).then(res => res.json())
-  .then(console.log(data))
+  }).then(res => res.json(), console.log(data))
+  .then(resetTextField())
   .catch(error => console.log('Error', error))
 }
 
