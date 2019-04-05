@@ -1,4 +1,4 @@
-fetchURL = `https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/`
+fetchURL = `https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/`;
 document.getElementById('fetch-btn').addEventListener('click', fetchComments);
 document.getElementById('submit-comment').addEventListener('click', postComment);
 
@@ -33,7 +33,7 @@ function appendComments(data) {
       deleteComment(data[i]._id);
     })
   }
-  isolateName(data);
+  // isolateName(data);
 }
 
 // create feature to post Comments
@@ -53,6 +53,8 @@ function postComment(event) {
   }).then(res => res.json(), console.log(data))
   .then(resetTextField())
   .catch(error => console.log('Error', error))
+
+  setTimeout(function(){ fetchComments(); }, 100);
 }
 
 // create function to find and display comments from specific author
