@@ -1,12 +1,41 @@
 * {
   font-family: 'Roboto';
   font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto 25%;
+  grid-template-rows: 100vh;
+}
+
+/* -- Side Menu Styling -- */
+
+.side-menu {
+  grid-column-start: 2;
+  background-color: red;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.text-input {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 2.5em;
+  font-size: 18px;
+  padding-left: 0.3em;
 }
 
 .hidden {
   display: none;
 }
 
+ul {
+  /* margin-bottom: 8em; */
+}
 li {
   list-style: none;
   font-size: 13px;

@@ -2,6 +2,8 @@ fetchURL = `https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/`;
 document.getElementById('fetch-btn').addEventListener('click', fetchComments);
 document.getElementById('submit-comment').addEventListener('click', postComment);
 
+let container = document.getElementById('comment-container');
+
 // (function fetchComments(event) {
 //   fetch(`https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/`)
 //   .then(res => res.json())
@@ -11,6 +13,11 @@ document.getElementById('submit-comment').addEventListener('click', postComment)
 //   setTimeout(fetchComments, 5000)
 // })();
 
+// (function scrollToBottom() {
+//   container.scrollIntoView(false);
+//   setTimeout(scrollToBottom, 1000)
+// })();
+
 function fetchComments(event) {
   fetch(fetchURL)
   .then(res => res.json())
@@ -18,7 +25,7 @@ function fetchComments(event) {
 }
 
 function appendComments(data) {
-  let container = document.getElementById('comment-container');
+  // let container = document.getElementById('comment-container');
   container.innerHTML = '';
   for (let i = 0; i < data.length; i++) {
     let li = document.createElement('li');
@@ -34,6 +41,7 @@ function appendComments(data) {
     })
   }
   // isolateName(data);
+  scrollToBottom(container);
 }
 
 // create feature to post Comments
@@ -54,7 +62,8 @@ function postComment(event) {
   .then(resetTextField())
   .catch(error => console.log('Error', error))
 
-  setTimeout(function(){ fetchComments(); }, 100);
+  setTimeout(function(){ fetchComments(); }, 500);
+  scrollToBottom(container);
 }
 
 // create function to find and display comments from specific author
@@ -72,6 +81,10 @@ function deleteComment(id) {
   }).then(function(response){
     fetchComments();
   });
+}
+
+function scrollToBottom(obj) {
+  obj.scrollIntoView(false); // Bottom
 }
 
 // create function to display a grid

@@ -9,14 +9,18 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 </head>
 <body>
-  <form>
-    <input type="text" name="" id="name" value="Nathaniel" class="hidden">
-    <input type="text" name="" id="comment">
-    <input id="submit-comment" type="submit" value="SUBMIT">
-  </form>
-  <button id="fetch-btn" data-allcomments="2">Fetch Comments</button>
-  <ul id="comment-container">
-  </ul>
+  <div class="side-menu">
+    <button id="fetch-btn" data-allcomments="2">Fetch Comments</button>
+    <ul id="comment-container">
+    </ul>
+    <div class="bottom">
+      <form>
+        <input type="text" name="" id="name" value="Nathaniel" class="hidden">
+        <input type="text" name="" id="comment" class="text-input">
+        <input id="submit-comment" type="submit" value="SUBMIT" class="hidden">
+      </form>
+    </div>
+  </div>
 </body>
 <script src="assets/js/main.js"></script>
 </html>
