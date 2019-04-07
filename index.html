@@ -7,16 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
   <div class="side-menu">
-    <button id="fetch-btn" data-allcomments="2">Fetch Comments</button>
-    <ul id="comment-container">
-    </ul>
+    <button id="fetch-btn" data-allcomments="2">Refresh Comments</button>
+    <div id="comment-container">
+    </div>
     <div class="bottom">
       <form>
         <input type="text" name="" id="name" value="Nathaniel" class="hidden">
-        <input type="text" name="" id="comment" class="text-input">
+        <input type="textarea" name="" placeholder="Send message.." id="comment" class="text-input">
         <input id="submit-comment" type="submit" value="SUBMIT" class="hidden">
       </form>
     </div>

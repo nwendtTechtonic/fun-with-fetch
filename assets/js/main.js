@@ -7,15 +7,10 @@ let container = document.getElementById('comment-container');
 // (function fetchComments(event) {
 //   fetch(`https://us-central1-fir-cb-backend.cloudfunctions.net/api/comment/`)
 //   .then(res => res.json())
-//   // .then(data => console.log(data))
 //   .then(data => appendHTML(data));
 //
-//   setTimeout(fetchComments, 5000)
-// })();
-
-// (function scrollToBottom() {
-//   container.scrollIntoView(false);
-//   setTimeout(scrollToBottom, 1000)
+//    scrollToBottom(container);
+//    setTimeout(fetchComments, 5000)
 // })();
 
 function fetchComments(event) {
@@ -25,22 +20,46 @@ function fetchComments(event) {
 }
 
 function appendComments(data) {
-  // let container = document.getElementById('comment-container');
   container.innerHTML = '';
   for (let i = 0; i < data.length; i++) {
-    let li = document.createElement('li');
-    let deleteBtn = document.createElement('button');
-      deleteBtn.innerText = 'delete';
 
-    li.innerText = data[i].comment;
-    container.append(li);
-    container.append(deleteBtn);
+// ES6 Template String - can't get it to work with the event listener
+    // const markup = `
+    //   <div class="comment">
+    //     <div class="inline-left"
+    //       <p>${data[i].author}</p>
+    //       <p>${data[i].comment}</p>
+    //     </div>
+    //     <div class="inline-right">
+    //       <button class="deleteBtn${[i]}">X</button>
+    //     </div>
+    //   </div>
+    // `;
+    // container.innerHTML += markup;
+    //
+    // const deleteBtn = document.querySelector(`.deleteBtn${[i]}`);
+    //
+    // deleteBtn.addEventListener('click', function() {
+    //   deleteComment(data[i]._id);
+    // })
+
+    let div = document.createElement('div');
+    let p = document.createElement('p');
+    let deleteBtn = document.createElement('button');
+    let trashIcon = `<i class="far fa-trash-alt"></i>`;
+    deleteBtn.innerHTML = trashIcon;
+    deleteBtn.setAttribute('class', 'inline');
+    div.setAttribute('class', 'message')
+
+    p.innerText = data[i].comment;
+    container.append(div);
+    div.appendChild(p);
+    div.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', function(){
       deleteComment(data[i]._id);
     })
   }
-  // isolateName(data);
   scrollToBottom(container);
 }
 

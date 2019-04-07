@@ -8,16 +8,60 @@
 body {
   display: grid;
   grid-template-columns: auto 25%;
-  grid-template-rows: 100vh;
+  grid-template-rows: 100%;
 }
 
 /* -- Side Menu Styling -- */
 
 .side-menu {
   grid-column-start: 2;
-  background-color: red;
   height: 100%;
+}
+
+#fetch-btn {
+  width: 100%;
+  padding: 1em;
+}
+
+#comment-container {
+  border-left: 1px solid #afafaf;
+}
+
+#comment-container p {
+  padding: 0.2em;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: auto 2em;
   overflow-y: scroll;
+}
+
+.message:last-of-type {
+  margin-bottom: 2.5em;
+}
+
+.inline {
+  grid-column-start: 2;
+}
+
+.message:nth-child(odd) {
+  background: #F8F8F8;
+}
+
+.message button {
+  background-color: #fff;
+  border-style: none;
+  border-left: 1px solid #F0F0F0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.message p {
+  margin: 0.5em;
+}
+
+.hidden {
+  display: none;
 }
 
 .text-input {
@@ -25,18 +69,11 @@ body {
   position: fixed;
   bottom: 0;
   height: 2.5em;
-  font-size: 18px;
-  padding-left: 0.3em;
+  font-size: 16px;
+  padding-left: 0.5em;
 }
 
-.hidden {
-  display: none;
-}
-
-ul {
-  /* margin-bottom: 8em; */
-}
-li {
-  list-style: none;
-  font-size: 13px;
+::placeholder {
+  color: #d7d7d7;
+  opacity: 1;
 }
