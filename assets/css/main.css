@@ -8,7 +8,26 @@
 body {
   display: grid;
   grid-template-columns: auto 25%;
-  grid-template-rows: 100%;
+  grid-template-rows: auto;
+}
+
+h1 {
+  font-family: 'Dokdo';
+  font-size: 3.6em;
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.4em;
+  left: 29%;
+}
+
+img {
+  width: 40%;
+  height: auto;
 }
 
 /* -- Side Menu Styling -- */
@@ -43,6 +62,10 @@ body {
 
 .inline {
   grid-column-start: 2;
+}
+
+.inline:hover {
+  color: #AD1B13;
 }
 
 .message:nth-child(odd) {
@@ -82,12 +105,15 @@ body {
 
 #gameboard {
   position: fixed;
-  margin: 3em 4.5em;
+  margin-top: 13em;
+  display: flex;
+  left: 12%;
 }
 
 table {
   border-spacing: 0;
   border-collapse: collapse;
+  border: 1px solid black;
 }
 
 td {
