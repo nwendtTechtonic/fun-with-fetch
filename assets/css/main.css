@@ -77,3 +77,21 @@ body {
   color: #d7d7d7;
   opacity: 1;
 }
+
+/* -- Gameboard Styling -- */
+
+#gameboard {
+  position: fixed;
+  margin: 3em 4.5em;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px dotted black;
+  padding: 30px;
+  margin: 0;
+}
